@@ -212,10 +212,161 @@ button {
   width: 30px;
   height: 30px;
   transform: translate(-8px, +8px);
+  color: #212121;
   background-color: var(--background-color);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
+  transition: transform var(--time) var(--cubic), color var(--time) var(--cubic);
 }
+.modal .send:focus {
+  color: var(--accent-color);
+}
+/* модалка форма */
+.form {
+  outline: 1px solid tomato;
+  width: 528px;
+  height: 581px;
+  padding: 40px;
+}
+.group {
+  padding-top: 12px;
+}
+p.form-title {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  margin-bottom: 12px;
+  color: #212121;
+  margin-bottom: 20px;
+}
+.field {
+  position: relative;
+  display: block;
+  margin-bottom: 20px;
+}
+.label {
+  position: absolute;
+  top: -50%;
+  left: 0;
+}
+.label,
+.label-comment,
+.label-policy {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.01em;
+  color: #757575;
+  text-align: left;
+}
+.label-comment {
+  position: absolute;
+  top: -20px;
+  left: 0;
+}
+.input {
+  margin: 0;
+  width: 100%;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  padding: 12px 12px 12px 45px;
+}
+.input:not(:last-child) {
+  margin-bottom: 10px;
+}
+.icon {
+  position: absolute;
+  top: 25%;
+  left: 14px;
+  content: '';
+  width: 15px;
+  height: 15px;
+  fill: #212121;
+  display: inline-block;
+  background-repeat: no-repeat;
+  transition: fill var(--time) var(--cubic);
+}
+.field:focus-within > .icon {
+  fill: var(--accent-color);
+}
+
+.field:focus-within > .comment,
+.field:focus-within > .input {
+  border-color: var(--accent-color);
+  outline: none;
+}
+textarea {
+  width: 100%;
+  height: 120px;
+  resize: none;
+  padding: 12px 16px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+}
+.field-policy {
+  padding-left: 10px;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.label-policy {
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.03em;
+}
+input[type='checkbox'] {
+  margin: 8px;
+}
+.checkbox.hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.icon-check {
+  content: '';
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-size: contain;
+  margin-right: 10px;
+  border: 2px solid #2a2a2a;
+  border-radius: 4px;
+}
+.checkbox:checked + .icon-check {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  background-origin: border-box;
+  background-image: url(../image/icons/icon-check.svg);
+}
+button.submit {
+  position: relative;
+  padding: 10px 55px;
+  background-color: #2196f3;
+  border-radius: 4px;
+  text-align: center;
+  color: #ffffff;
+  transition: fill 250ms var(--cubic);
+}
+button.submit:focus {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
+
 .hero-container > .button {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
@@ -250,6 +401,7 @@ button {
   background: #2196f3;
   padding: 10px 32px;
 }
+
 .title {
   font-size: 36px;
   line-height: 42px;
@@ -327,11 +479,10 @@ button {
 /* ----------------team section--- */
 .team {
   justify-content: space-between;
-  padding: 94px 0;
   background-color: #f5f4fa;
 }
 .team .container {
-  padding: 0 15px;
+  padding: 94px 15px;
 }
 .team-card {
   display: flex;
@@ -436,12 +587,11 @@ a {
 /* ------------------footer */
 .footer {
   color: var(--background-color);
-  padding: 60px 0;
   background-color: #2f303a;
 }
 .footer .container {
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 60px 15px;
   display: flex;
 }
 .footer-contacts {
@@ -477,12 +627,14 @@ a {
   line-height: 1.71;
   letter-spacing: 0.03em;
 }
+.footer-form .label,
 .footer-social .title {
   font-size: 14px;
   line-height: 16px;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   margin-bottom: 20px;
+  text-align: left;
 }
 .footer-social-item {
   display: flex;
@@ -505,6 +657,52 @@ a {
   background-color: var(--accent-color);
 }
 
+.footer-form {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  padding-top: 36px;
+  margin-left: 90px;
+}
+.footer-form button.submit {
+  display: block;
+  padding: 10px 30px;
+  height: 50px;
+  width: 200px;
+  font-size: 16px;
+  line-height: 30px;
+  letter-spacing: 0.06em;
+  color: var(--background-color);
+  text-align: left;
+}
+.footer-form .submit::before {
+  position: absolute;
+  top: 30%;
+  right: 30px;
+  display: inline-block;
+  content: '';
+  width: 24px;
+  height: 24px;
+  background-image: url(../image/icons/icon-send.svg);
+}
+.footer-form .label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--background-color);
+  margin: 0;
+  padding: 0;
+}
+.footer-form .input {
+  display: block;
+  box-sizing: border-box;
+  margin-right: 12px;
+  background-color: inherit;
+  width: 358px;
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
 /*------------page Potfolio----*/
 .portfolio .button {
   padding: 6px 22px;
@@ -623,155 +821,4 @@ a {
   display: block;
   padding: 20px 24px;
   justify-content: center;
-}
-/* модалка форма */
-.form {
-  outline: 1px solid tomato;
-  width: 528px;
-  height: 581px;
-  padding: 40px;
-  /* box-sizing: border-box; */
-}
-.group {
-  padding-top: 12px;
-}
-p.form-title {
-  margin: 0;
-  padding: 0;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 23px;
-  text-align: center;
-  letter-spacing: 0.03em;
-  margin-bottom: 12px;
-  color: #212121;
-  margin-bottom: 20px;
-}
-.field {
-  position: relative;
-  /* box-sizing: border-box; */
-  display: block;
-  margin-bottom: 20px;
-}
-.label {
-  position: absolute;
-  top: -50%;
-  left: 0;
-}
-.label,
-.label-comment,
-.label-policy {
-  /* width: 100%; */
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 14px;
-  letter-spacing: 0.01em;
-  color: #757575;
-  text-align: left;
-  /* margin-top: 10px; */
-}
-.label-comment {
-  position: absolute;
-  top: -20px;
-  left: 0;
-}
-.input {
-  margin: 0;
-  width: 100%;
-  border: 1px solid rgba(33, 33, 33, 0.2);
-  border-radius: 4px;
-  padding: 12px 12px 12px 45px;
-}
-.input:not(:last-child) {
-  margin-bottom: 10px;
-}
-.icon {
-  position: absolute;
-  top: 25%;
-  left: 14px;
-  content: '';
-  width: 15px;
-  height: 15px;
-  background-color: red;
-  display: inline-block;
-  background-repeat: no-repeat;
-}
-.icon1 {
-  background-image: url(../image/icons/name.svg);
-}
-.icon2 {
-  background-image: url();
-}
-.icon3 {
-  background-image: url();
-}
-textarea {
-  width: 100%;
-  height: 120px;
-  resize: none;
-  padding: 12px 16px;
-  border: 1px solid rgba(33, 33, 33, 0.2);
-  border-radius: 4px;
-}
-.field-policy {
-  padding-left: 10px;
-  display: flex;
-  flex-direction: row;
-  text-align: center;
-  align-items: center;
-  margin-bottom: 30px;
-}
-.label-policy {
-  display: flex;
-  flex-direction: row;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: 0.03em;
-}
-.label-policy a {
-  margin-left: 5px;
-  color: var(--accent-color);
-  text-decoration-line: underline;
-}
-input[type='checkbox'] {
-  margin: 8px;
-}
-.checkbox.hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
-.icon-check {
-  content: '';
-  display: inline-block;
-  width: 15px;
-  height: 15px;
-  background-size: contain;
-  /* background-color: red; */
-  margin-right: 10px;
-  border: 2px solid #2a2a2a;
-  border-radius: 4px;
-}
-.checkbox:checked + .icon-check {
-  background-color: var(--accent-color);
-  border-color: var(--accent-color);
-  background-origin: border-box;
-  background-image: url(../image/icons/icon-check.svg);
-}
-button.submit {
-  position: relative;
-  padding: 10px 55px;
-  background-color: #2196f3;
-  border-radius: 4px;
-  text-align: center;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  color: #ffffff;
 }
