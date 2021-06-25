@@ -175,6 +175,7 @@ header {
 button {
   border: none;
 }
+/* модалка форма */
 .backdrop {
   position: fixed;
   top: 0;
@@ -196,7 +197,7 @@ button {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(1.1);
+  transform: translate(-50%, -50%);
   width: 528px;
   height: 581px;
   background-color: var(--background-color);
@@ -218,12 +219,10 @@ button {
   border-radius: 50%;
   transition: transform var(--time) var(--cubic), color var(--time) var(--cubic);
 }
-.modal .send:focus {
+.modal .send:hover {
   color: var(--accent-color);
 }
-/* модалка форма */
 .form {
-  outline: 1px solid tomato;
   width: 528px;
   height: 581px;
   padding: 40px;
@@ -295,7 +294,7 @@ p.form-title {
 .field:focus-within > .icon {
   fill: var(--accent-color);
 }
-
+.input:focus,
 .field:focus-within > .comment,
 .field:focus-within > .input {
   border-color: var(--accent-color);
@@ -310,10 +309,8 @@ textarea {
   border-radius: 4px;
 }
 .field-policy {
+  position: relative;
   padding-left: 10px;
-  display: flex;
-  flex-direction: row;
-  text-align: center;
   align-items: center;
   margin-bottom: 30px;
 }
@@ -323,6 +320,7 @@ textarea {
   font-size: 14px;
   line-height: 24px;
   letter-spacing: 0.03em;
+  padding-left: 25px;
 }
 input[type='checkbox'] {
   margin: 8px;
@@ -339,6 +337,9 @@ input[type='checkbox'] {
 }
 
 .icon-check {
+  position: absolute;
+  top: 5px;
+  left: 10px;
   content: '';
   display: inline-block;
   width: 15px;
@@ -362,11 +363,12 @@ button.submit {
   text-align: center;
   color: #ffffff;
   transition: fill 250ms var(--cubic);
+  transform: scale(1);
 }
 button.submit:focus {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
-
+/* hero */
 .hero-container > .button {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
@@ -409,7 +411,7 @@ button.submit:focus {
   margin-bottom: 50px;
   text-align: center;
 }
-/* ----fearures section */
+/* ----features section */
 .features {
   padding-top: 94px;
 }
@@ -462,6 +464,7 @@ button.submit:focus {
   margin-right: 30px;
 }
 .image-box {
+  display: block;
   position: relative;
   overflow: hidden;
 }
@@ -471,6 +474,7 @@ button.submit:focus {
   left: 0;
   width: 100%;
   background-color: rgba(47, 48, 58, 0.8);
+  font-weight: bold;
   text-align: center;
   padding: 27px;
   text-transform: uppercase;
@@ -631,6 +635,7 @@ a {
 .footer-social .title {
   font-size: 14px;
   line-height: 16px;
+  font-weight: bold;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   margin-bottom: 20px;
@@ -702,6 +707,7 @@ a {
   padding: 15px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 4px;
+  color: var(--background-color);
 }
 /*------------page Potfolio----*/
 .portfolio .button {
